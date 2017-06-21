@@ -1,0 +1,52 @@
+{{>adminnavbar}} 
+    <div class="col-sm-4 padding-right ">
+        <h3><span class="label label-danger center-block">{{msg}}</span></h3>
+        <h1>Dodaj nowy produkt</h1>
+        <form action="/admin/addproduct" method="post" id="addproduct" name="addproduct">
+            <div class="form-group">
+                <label for="image">Okładka</label>
+                <input type="url" id="image" name="image" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="title">Tytuł</label>
+                <input type="text" id="title" name="title" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="author">Autor</label>
+                <input type="text" id="author" name="author" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="description">Krótki opis</label>
+                <textarea type="text" id="description" name="description" class="form-control" maxlength="1000" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="publisher">Wydawca</label>
+                <input type="text" id="publisher" name="publisher" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="year">Rok wydania</label>
+                <input type="number" id="year" name="year" min="1800" max="2099" step="1" required/>
+            </div>
+            <div class="form-group">
+                <label for="price">Cena</label>
+                <input type="number" id="price" name="price" class="form-control" step="0.01" required />
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="string" id="isbn" name="isbn" required/>
+            </div>
+            <div class="form-group">
+                <label for="genre">Gatunek</label>
+                <select type="text" id="genre" name="genre" class="form-control" required />
+                <option>sf</option>
+                <option>action</option>
+                <option>kids</option>
+                <option>drama</option>
+                <option>cooking</option>
+                <option>education</option>
+                </select>
+            </div>
+            <button type="submit" id="add" class="btn btn-info" >Dodaj nową książkę</button>
+        </form>
+    </div>
+

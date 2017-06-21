@@ -1,0 +1,39 @@
+{{>adminnavbar}}
+<div class="col-sm-9 padding-right main">
+          <h2 class="sub-header">Lista wszystkich produktów</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tytuł</th>
+                  <th>Autor</th>
+                  <th>ISBN</th>
+                  <th>Cena (zł)</th>
+                  <th>Promocja</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+               {{# each products}}
+               {{# each this}}
+                <tr>
+                  <td>{{this.id}}</td>
+                  <td>{{this.title}}</td>
+                  <td>{{this.author}}</td>
+                  <td>{{this.isbn}}</td>
+                  <td>{{this.price}}</td>
+                  <td>{{this.promo}}</td>
+                  <td><a href="/admin/editproduct/{{this.id}}" class="btn btn-info" role="button">Edytuj</a></td>
+                   <form action="/admin/products" method="post">
+                   <input type="hidden" name="id" value="{{ this.id }}">
+                  <td><button type="submit" class="btn btn-danger">Usuń</button></td>
+                   </form>
+                </tr>
+                {{/each}}
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>

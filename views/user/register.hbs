@@ -1,0 +1,58 @@
+ <div class="col-sm-6 col-sm-offset-3">
+        {{#if hasErrors}}
+        <div class="alert alert-danger">
+            {{# each messages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        <form action="/user/register" method="post">
+            <h2 class="form-signin-heading">Zarejestruj się</h2>
+            <div class="form-group">
+                <label for="first">Imię<span style="color:red">*</span></label>
+                <input type="text" id="firstN" class="form-control" required name="firstN">
+            </div>
+            <div class="form-group">
+                <label for="last">Nazwisko<span style="color:red">*</span></label>
+                <input type="text" id="lastN" class="form-control" required name="lastN">
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail<span style="color:red">*</span></label>
+                <input type="text" id="email" name="email" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło<span style="color:red">*</span></label>
+                <input type="password" id="password" name="password" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="city">Miasto<span style="color:red">*</span></label>
+                <input type="text" id="city" class="form-control" required name="city">
+            </div>
+
+            <div class="form-group">
+                <label for="street">Ulica<span style="color:red">*</span></label>
+                <input type="text" id="street" class="form-control" required name="street">
+            </div>
+
+            <div class="form-group">
+                <label for="building-number">Numer domu<span style="color:red">*</span></label>
+                <input type="text" id="building" class="form-control" required name="building">
+            </div>
+
+            <div class="form-group">
+                <label for="flat-number">Numer mieszkania</label>
+                <input type="text" id="flat" class="form-control" name="flat">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Numer telefonu</label>
+                <input type="text" id="phone" class="form-control" name="phone">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Zarejestruj</button>
+        </form>
+        <h6 style="color:red">*Pola wymagane podczas rejestracji.</h6>
+    </div>
+<link href="/stylesheets/register.css" rel="stylesheet">

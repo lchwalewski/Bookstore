@@ -1,0 +1,67 @@
+<div id="chargeError" class="alert alert-danger {{# if noErrors}} hidden {{/if}}">
+    {{errMsg}}
+</div>
+<div class="col-sm-4 col-sm-offset-3">
+    <h1>Finalizacja zakupu</h1>
+    <h4 style="color:#FE980F">Do zapłaty: {{total}} zł</h4>
+    <form action="/checkout" method="post" id="checkout-form">
+        <div class="row">
+            <div class="form-group" hidden>
+                <input type="text" id="street" class="form-control" name="street" value="{{user.street}}">
+            </div>
+
+            <div class="form-group" hidden>
+                <input type="text" id="city" class="form-control" name="city" value="{{user.city}}">
+            </div>
+
+            <div class="form-group" hidden>
+                <input type="text" id="building-number" class="form-control" name="building-number" value="{{user.buildingNumber}}">
+            </div>
+
+            <div class="form-group" hidden>
+                <input type="text" id="flat-number" class="form-control" name="flat-number" value="{{user.flatNumber}}">
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="cardName">Nazwisko posiadacza karty</label>
+                    <input type="text" id="card-name" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="cardNumber">Numer karty kredytowej</label>
+                    <input type="text" id="card-number" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="cardExpiryMonth">Ważna do (MM)</label>
+                            <input type="text" id="card-expiry-month" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="cardExpiryYear">Ważna do (RRRR)</label>
+                            <input type="text" id="card-expiry-year" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="cardCvc">CVC</label>
+                    <input type="text" id="card-cvc" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <a href="/cart" class="btn btn-info pull-left">Powrót</a>
+        <button type="submit" class="btn btn-success pull-right">Zapłać</button>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="javascripts/checkout.js"></script>

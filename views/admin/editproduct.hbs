@@ -1,0 +1,65 @@
+{{>adminnavbar}}
+<div class="col-sm-6 padding-right">
+<h1><span class="label label-danger center-block">Edytujesz <br> {{product.title}} {{product.id}}</span></h1>
+</div>
+    <div class="col-sm-4 padding-right align-center">  
+        <h3><span class="label label-danger center-block">{{msg}}</span></h3>
+            <form action="/admin/editproduct" method="post">
+                <div class="form-group">
+                    <label for="image">Okładka</label>
+                    <input type="url" id="image" name="image" class="form-control" value="{{product.image}}"  />
+                </div>
+                <div class="form-group">
+                    <label for="title">Tytuł</label>
+                    <input type="text" id="title" name="title" class="form-control" value="{{product.title}}" required />
+                </div>
+                <div class="form-group">
+                    <label for="author">Autor</label>
+                    <input type="text" id="author" name="author" class="form-control" value="{{product.author}}" required />
+                </div>
+                <div class="form-group">
+                    <label for="description">Krótki opis</label>
+                    <textarea type="text" id="description" name="description" class="form-control" maxlength="1000" required>{{product.description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="publisher">Wydawca</label>
+                    <input type="text" id="publisher" name="publisher" class="form-control" value="{{product.publisher}}" required/>
+                </div>
+                <div class="form-group">
+                    <label for="year">Rok wydania</label>
+                    <input type="number" id="year" name="year" class="form-control" min="1800" max="2099" step="1" value="{{product.year}}" required/>
+                </div>
+                <div class="form-group">
+                    <label for="price">Cena</label>
+                    <input type="number" id="price" name="price" class="form-control" step="0.01" value="{{product.price}}" required />
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" id="isbn" name="isbn" class="form-control" value="{{product.isbn}}" required/>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Gatunek</label>
+                    <select type="text" id="genre" name="genre" class="form-control" value="{{product.genre}}" required />
+                    <option>{{product.genre}}</option>
+                    <option>sf</option>
+                    <option>action</option>
+                    <option>kids</option>
+                    <option>drama</option>
+                    <option>cooking</option>
+                    <option>education</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Promocja {{product.promo}}</label>
+                    <select type="text" name="promo" class="form-control" value="{{product.promo}}" required />
+                    <option>false</option>
+                    <option>true</option>
+                    </select>
+                </div>
+                <input type="hidden" name="id" value="{{product.id}}">
+                <a href="/admin/products/" class="btn btn-info pull-left">Powrót</a>
+                <button type="submit" class="btn btn-warning pull-right" >Zapisz zmiany</button>
+            </form>
+    </div>
+
+

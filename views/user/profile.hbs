@@ -1,0 +1,80 @@
+<div class="col-sm-9 padding-right">
+    <h1>Informacje o twoim koncie</h1>
+    <div class="table-responsive">
+        <table class="table table-borderless">
+            <tr>
+                <td>
+                    Imię
+                </td>
+                <td>
+                    {{user.firstName}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nazwisko
+                </td>
+                <td>
+                    {{user.lastName}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Adres e-mail
+                </td>
+                <td>
+                    {{user.email}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Telefon komórkowy
+                </td>
+                <td>
+                    {{user.phoneNumber}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Miasto
+                </td>
+                <td>
+                    {{user.city}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ulica
+                </td>
+                <td>
+                    {{user.street}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Numer budynku
+                </td>
+                <td>
+                    {{user.buildingNumber}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Numer mieszkania
+                </td>
+                <td>
+                    {{user.flatNumber}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Data rejestracji
+                </td>
+                <td>
+                    {{dateFormat user.create_date "D.MM.YYYY HH:mm"}}
+                </td>
+            </tr>
+        </table>
+    <a href="/user/updateprofile" class="btn btn-lg btn-info pull-right">Aktualizuj</a>
+    </div>
+</div>

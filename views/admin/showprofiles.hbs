@@ -1,0 +1,42 @@
+{{>adminnavbar}}
+<div class="col-sm-9 padding-right main">
+          <h2 class="sub-header">Zarejestrowani użytkownicy</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Imię</th>
+                  <th>Nazwisko</th>
+                  <th>E-mail</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              {{# each users}}
+               {{# each this}}
+              <tbody>
+                <tr>
+                  <td>{{this.id}}</td>
+                  <td>{{this.firstName}}</td>
+                  <td>{{this.lastName}}</td>
+                  <td>{{this.email}}</td>
+                  <td class="role">{{this.role}}</td>
+                  <form action="/admin/showprofiles" method="post">
+                   <input type="hidden" name="id" value="{{ this.id }}">
+                  <td><button type="submit" class="btn btn-danger">Usuń użytkownika</button></td>
+                  </form>
+                </tr>
+              </tbody>
+              {{/each}}
+              {{/each}}
+            </table>
+          </div>
+        </div>
+<script>
+   $('.role').each(function () {
+        $(this).filter(":contains('admin')").parent().parent().remove();
+    });
+  
+
+</script>

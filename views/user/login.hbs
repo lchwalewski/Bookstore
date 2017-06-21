@@ -1,0 +1,22 @@
+    <div class="col-sm-9 col-md-4 col-sm-offset-3">
+        {{#if hasErrors}}
+            <div class="alert alert-danger">
+                {{# each messages}}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+        <form class="form-signin" action="/user/login" method="post">
+        <h2 class="form-signin-heading">Zaloguj się</h2>
+        <hr id="hr-mid">
+        <label for="email" class="sr-only">Adres e-mail</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Adres e-mail" required autofocus></br>
+        <label for="password" class="sr-only">Hasło</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Hasło" required></br>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
+      </form>
+      <hr id="hr-bot">
+      <p align="center">Nie masz konta? <a href="/user/register">Załóż je teraz!</a></p>
+    </div>
+<link href="/stylesheets/login.css" rel="stylesheet">

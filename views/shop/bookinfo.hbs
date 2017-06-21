@@ -1,0 +1,24 @@
+{{>genresnavbar}}
+<div class="col-sm-9 padding-right col-sm-offset-3">
+    <div class="product-details">
+        <div class="col-sm-5">
+            <div class="view-product">
+                <img src="{{product.image}}" alt="Ładowanie okładki" />
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information">
+                <h2>{{product.title}}</h2>
+                <h4>{{product.author}}</h4>
+                <p><b>ISBN:</b> {{product.isbn}}</p>
+                <p><b>Wydawnictwo: </b>{{product.publisher}}</p>
+                <p><b>Rok wydania: </b>{{product.year}}</p>
+                <span><span>{{product.price}} zł</span>
+                <a href="/addToCart/{{product.id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Dodaj do koszyka</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-9 padding-right col-sm-offset-3">
+    {{product.description}}
+</div>

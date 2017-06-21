@@ -1,0 +1,26 @@
+{{>genresnavbar}}
+<div class="col-sm-9 padding-right col-sm-offset-3">
+    <div class="alert alert-success {{# if noMessages}} hidden {{/if}}" id="success">
+        {{successMsg}}
+    </div>
+</div>
+{{# each products}}
+<div class="col-sm-9 padding-right col-sm-offset-3">
+    {{# each this}}
+    <div class="col-sm-3">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <a href="/bookinfo/{{this.id}}"><img src="{{this.image}}" alt="ŁADOWANIE OKŁADKI" /></a>
+                    <h3>{{this.title}}</h3>
+                    <h4>{{this.author}}</h4>
+                    <h5>Wydano przez {{this.publisher}} w {{this.year}} roku</h5>
+                    <h2>{{this.price}} zł</h2>
+                    <a href="/addToCart/{{this.id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Dodaj do koszyka</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/each}}

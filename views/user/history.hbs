@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Historia twoich zamówień</h2>
+        {{# each orders}}
+        <div class="panel panel-primary">
+             <div class="panel-heading">{{dateFormat this.create_date "D.MM.YYYY  HH:mm"}}</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    {{# each this.items}}
+                        <li class="list-group-item">
+                        <span class="badge">{{this.price}} zł</span>
+                        {{this.item.title}} | {{this.qty}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <strong>{{this.cart.totalPrice}} zł</strong><p class="pull-right">{{this.status}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<script>
+    var role = document.getElementsByClassName('pull-right');
+    for (let i = 0, ilen = role.length; i < ilen; i++) {
+        if (role[i].innerHTML === 'inprogress') {
+            role[i].style.color = 'blue';
+            role[i].style.fontSize = "16px";
+            role[i].innerHTML='W trakcie realizacji';
+        }
+        if (role[i].innerHTML === 'canceled') {
+            role[i].style.color = 'red';
+            role[i].style.fontSize = "16px";
+            role[i].innerHTML='Anulowano';
+        }
+        if (role[i].innerHTML === 'done') {
+            role[i].style.color = 'forestgreen';
+            role[i].style.fontSize = "16px";
+            role[i].innerHTML='Zrealizowano';
+        }
+    }
+</script>

@@ -1,0 +1,61 @@
+<div class="row">
+     <h3><span class="label label-danger center-block">{{msg}}</span></h3>
+     {{msg}}
+    <div class="col-sm-6 col-sm-offset-3">
+         {{#if hasErrors}}
+        <div class="alert alert-danger">
+            {{# each messages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        <h1>Zaktualizuj swoje dane</h1>
+        <form action="/user/updateprofile" method="post">
+          <div class="form-group">
+                <label for="first">Imię</label>
+                <input type="text" id="firstN" class="form-control" name="firstN" value="{{user.firstName}}">
+            </div>
+            <div class="form-group">
+                <label for="last">Nazwisko</label>
+                <input type="text" id="lastN" class="form-control" required name="lastN" value="{{user.lastName}}">
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="email" class="form-control" value="{{user.email}}">
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                <input type="password" id="password" name="password" class="form-control" minlength="4" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Miasto</label>
+                <input type="text" id="city" class="form-control" required name="city" value="{{user.city}}">
+            </div>
+
+            <div class="form-group">
+                <label for="street">Ulica</label>
+                <input type="text" id="street" class="form-control" required name="street" value="{{user.street}}">
+            </div>
+
+            <div class="form-group">
+                <label for="building-number">Numer domu</label>
+                <input type="text" id="building" class="form-control" required name="building" value="{{user.buildingNumber}}">
+            </div>
+
+            <div class="form-group">
+                <label for="flat-number">Numer mieszkania</label>
+                <input type="text" id="flat" class="form-control" name="flat" value="{{user.flatNumber}}">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Numer telefonu</label>
+                <input type="tel" id="phone" class="form-control" name="phone" value="{{user.phoneNumber}}" pattern="[5-8]{1}[0-9]{2}[0-9]{3}[0-9]{3}">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <button type="submit" class="btn btn-info pull-right">Aktualizuj dane</button>
+            <a href="/user/profile" class="btn btn-default pull-left">Wróć </a>
+        </form>
+        
+    </div>
+</div>

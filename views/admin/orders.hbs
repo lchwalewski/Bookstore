@@ -1,0 +1,42 @@
+{{>adminnavbar}}
+    <div class="col-sm-9 padding-right">
+        <h2>Historia zamówień</h2>
+        {{# each orders}}
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">{{dateFormat this.create_date "D/MM/YYYY, HH:mm"}}<br>
+            <b>ID Płatności: {{this.paymentId}}<br></b>
+            {{this.user.email}} {{this.user.firstName}} {{this.user.lastName}} <br>                
+            {{this.user.city}} ul.{{this.user.street}} {{this.user.buildingNumber}}/{{this.user.flatNumber}}
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    {{# each this.items}}
+                    <li class="list-group-item">
+                        <span class="badge">{{this.price}} zł</span> {{this.item.title}} | {{this.qty}}
+
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <strong>{{this.cart.totalPrice}} zł</strong>
+                <p class="pull-right">{{this.status}}</p>
+
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+<script>
+    $('.panel-primary .pull-right').each(function () {
+        $(this).filter(":contains('inprogress')").parent().parent().remove();
+    });
+    $('.panel-primary .pull-right').each(function () {
+        $(this).filter(":contains('done')").parent().parent().toggleClass('panel-primary panel-success');
+        $(this).filter(":contains('canceled')").parent().parent().toggleClass('panel-primary panel-danger');
+    });
+
+
+</script>

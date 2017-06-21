@@ -1,0 +1,86 @@
+.book {
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 60px;
+}
+
+.image {
+    margin-right: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 150px;
+    width: 150px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+h4 {
+    font-style: italic;
+}
+
+.indexText {
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    width: 200px;
+    height: 220px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#search {
+    display: block;
+    text-align: center;
+}
+
+.logotext {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.logotext:hover {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.mobile-email ul li {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.mobile-email ul li:first-child {
+    padding-left: 0px;
+}
+
+.mobile-email ul li a {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0;
+    padding-bottom: 0px;
+}
+
+.orangetext {
+    color: #fe980f;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.table-borderless {
+    border: none;
+}
